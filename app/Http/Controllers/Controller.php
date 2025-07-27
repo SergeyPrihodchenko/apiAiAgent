@@ -26,6 +26,18 @@ abstract class Controller
         $this->nameModel = $nameModel;
     }
 
+    public function index()
+    {
+        return response(json_encode([
+            'status' => true
+        ]),
+            200,
+            [
+                'Content-type' => 'application/json'
+            ]
+            );
+    }
+
     public function request(string $action, array $data): Response
     {
         $url = $this->preparedUrl($action);
