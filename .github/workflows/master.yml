@@ -17,8 +17,6 @@ jobs:
         run: |
           echo "SERVER_HOST=${{ secrets.SERVER_HOST }}"
           echo "SERVER_USER=${{ secrets.SERVER_USER }}"
-          echo "SERVER_HOST=${{ dep.SERVER_HOST }}"
-          echo "SERVER_USER=${{ dep.SERVER_USER }}"
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.0
