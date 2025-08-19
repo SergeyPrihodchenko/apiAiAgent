@@ -13,6 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Debug secrets
+        run: |
+          echo "SERVER_HOST=${{ secrets.SERVER_HOST }}"
+          echo "SERVER_USER=${{ secrets.SERVER_USER }}"
+
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.0
         with:
