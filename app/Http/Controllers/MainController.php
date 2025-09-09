@@ -9,6 +9,6 @@ class MainController extends Controller
 {
     public function index(): Response
     {
-       return response(view('components.main'));
+       return response(view('main'));
     }
 }
