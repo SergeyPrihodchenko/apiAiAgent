@@ -11,7 +11,7 @@ class SberController extends Controller
 
     static public function getToken()
     {
-        $authorization = env('SBER_TKEN');
+        $authorization = env('SBER_TOKEN');
         $rqUid = uniqid('', true);
 
         $response = Http::withHeaders([
