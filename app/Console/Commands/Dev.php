@@ -27,6 +27,7 @@ class Dev extends Command
      */
     public function handle()
     {
-        File::put(__DIR__.'/../../../private/sber_token.json', json_encode(['test' => 'test']));
+        $rqUid = uniqid('', true);
+        dd($rqUid);
     }
 }

@@ -27,3 +27,4 @@ jobs:
           script: |
             cd /var/www/html
             git pull origin master
+            composer install --no-dev --optimize-autoloader

@@ -13,7 +13,7 @@ class SberController extends Controller
     {
         $authorization = env('SBER_TOKEN');
         $clientId = env('CLIENT_ID');
-        $rqUid = uniqid('', true);
+        $rqUid = \Ramsey\Uuid\Uuid::uuid4();
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/x-www-form-urlencoded',
