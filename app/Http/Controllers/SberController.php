@@ -18,7 +18,7 @@ class SberController extends Controller
             'Content-Type' => 'application/x-www-form-urlencoded',
             'Accept' => 'application/json',
             'RqUID' => $rqUid,
-            'Authorization' => 'Basic ' . $authorization,
+            'Authorization' => 'Bearer ' . $authorization,
         ])->asForm()->post('https://ngw.devices.sberbank.ru:9443/api/v2/oauth', [
             'scope' => self::SCOPE,
         ]);
