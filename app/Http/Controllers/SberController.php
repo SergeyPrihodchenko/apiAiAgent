@@ -12,13 +12,14 @@ class SberController extends Controller
     static public function getToken()
     {
         $authorization = env('SBER_TOKEN');
+        $clientId = env('CLIENT_ID');
         $rqUid = uniqid('', true);
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/x-www-form-urlencoded',
             'Accept' => 'application/json',
             'RqUID' => $rqUid,
-            'Authorization' => 'Bearer ' . $authorization,
+            'Authorization' => 'Basic ' . base64_encode($clientId . ':' . $authorization),
         ])->asForm()->post('https://ngw.devices.sberbank.ru:9443/api/v2/oauth', [
             'scope' => self::SCOPE,
         ]);
