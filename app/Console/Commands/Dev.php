@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Http\Controllers\GigaController;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 
 class Dev extends Command
 {
@@ -26,6 +27,6 @@ class Dev extends Command
      */
     public function handle()
     {
-
+        File::put(__DIR__.'/../../../private/sber_token.json', json_encode(['test' => 'test']));
     }
 }

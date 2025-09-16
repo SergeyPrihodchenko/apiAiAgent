@@ -26,7 +26,7 @@ class SberController extends Controller
         $status = $response->status();
         $response = $response->json();
         
-        File::put($_SERVER['DOCUMENT_ROOT'].'../private/sber_token.json', json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-        File::put($_SERVER['DOCUMENT_ROOT'].'/../private/status.json', json_encode($status, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        File::put(__DIR__. '/../../../private/sber_token.json', json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        File::put(__DIR__. '/../../../private/status.json', json_encode($status, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
 }
