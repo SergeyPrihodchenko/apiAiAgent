@@ -2,17 +2,16 @@
 
 namespace App\Console\Commands;
 
-use App\Http\Controllers\GigaController;
 use Illuminate\Console\Command;
 
-class Dev extends Command
+class GetTokenCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:dev';
+    protected $signature = 'app:get-token-command';
 
     /**
      * The console command description.
@@ -26,6 +25,6 @@ class Dev extends Command
      */
     public function handle()
     {
-
+        \App\Http\Controllers\SberController::getToken();
     }
 }
