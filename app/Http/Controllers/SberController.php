@@ -52,7 +52,7 @@ class SberController extends Controller
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $accessToken,
             'RqUID' => $rqUid,
-        ])->post('https://api.gigachat.sber.ru/v1/chat/completions', [
+        ])->post('https://ngw.devices.sberbank.ru:9443/api/v2/chat/completions', [
             'messages' => [
             [
                 'role' => 'system',
