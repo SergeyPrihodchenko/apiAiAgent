@@ -26,8 +26,9 @@ class Dev extends Command
      * Execute the console command.
      */
     public function handle()
-    {
-        $rqUid = \Ramsey\Uuid\Uuid::uuid4()->toString();
-        dd($rqUid);
+    {        
+        $authorization = env('SBER_TOKEN');
+        $clientId = env('CLIENT_ID');
+        dd(base64_encode($clientId . ':' . $authorization));
     }
 }

@@ -11,7 +11,7 @@ class SberController extends Controller
 
     static public function getToken()
     {
-        $authorization = env('SBER_TOKEN');
+        $clientSecret = env('SBER_TOKEN');
         $clientId = env('CLIENT_ID');
         $rqUid = \Ramsey\Uuid\Uuid::uuid4()->toString();
 
@@ -19,7 +19,7 @@ class SberController extends Controller
             'Content-Type' => 'application/x-www-form-urlencoded',
             'Accept' => 'application/json',
             'RqUID' => $rqUid,
-            'Authorization' => 'Basic ' . base64_encode($clientId . ':' . $authorization),
+            'Authorization' => 'Basic ' . base64_encode($clientId . ':' . $clientSecret),
         ])->asForm()->post('https://ngw.devices.sberbank.ru:9443/api/v2/oauth', [
             'scope' => self::SCOPE,
         ]);
