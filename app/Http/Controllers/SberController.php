@@ -34,16 +34,14 @@ class SberController extends Controller
         File::put(__DIR__. '/../../../private/status.json', json_encode($status, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
 
-    public function sendPrompt(Request|string $request)
+    public function sendPrompt(Request $request)
     {
-        if($request instanceof Request) {
-            $prompt = $request->input('prompt', null);
-            if (!$prompt) {
-                return ['error' => 'Prompt is required'];
-            }
-        } else {
-            $prompt = $request;
+
+        $prompt = $request->input('prompt', null);
+        if (!$prompt) {
+            return ['error' => 'Prompt is required'];
         }
+        
 
         $accessToken = (new \App\Http\Data\AccessToken())->getToken();
         $rqUid = Uuid::uuid4()->toString();
@@ -91,7 +89,9 @@ class SberController extends Controller
         $fileId = $fileResponse['id'];
         $fullPrompt = $prompt . "\n[File ID: " . $fileId . "]";
 
-        return $this->sendPrompt($fullPrompt);
+        $request->replace(['prompt' => $fullPrompt]);
+
+        return $this->sendPrompt($request);
     }
 
     private function sendFile()
