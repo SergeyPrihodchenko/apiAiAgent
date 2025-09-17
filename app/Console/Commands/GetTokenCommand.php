@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\SberController;
 use Illuminate\Console\Command;
 
 class GetTokenCommand extends Command
@@ -25,6 +26,7 @@ class GetTokenCommand extends Command
      */
     public function handle()
     {
-        \App\Http\Controllers\SberController::getToken();
+        app(SberController::class)->getToken();
+        return 0;
     }
 }
