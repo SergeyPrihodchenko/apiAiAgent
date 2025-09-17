@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Data\AccessToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
@@ -43,7 +44,7 @@ class SberController extends Controller
         }
         
 
-        $accessToken = (new \App\Http\Data\AccessToken())->getToken();
+        $accessToken = (new AccessToken())->getToken();
         $rqUid = Uuid::uuid4()->toString();
 
         $response = Http::withHeaders([
