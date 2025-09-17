@@ -27,8 +27,8 @@ class Dev extends Command
      */
     public function handle()
     {        
-        $authorization = env('SBER_TOKEN');
-        $clientId = env('CLIENT_ID');
-        dd(base64_encode($clientId . ':' . $authorization));
+            $data = File::get(__DIR__ . '/../../../private/sber_token.json');
+            $data = json_decode($data, true);
+            dd($data['expires_at']);
     }
 }

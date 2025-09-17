@@ -20,14 +20,14 @@ class AccessToken
         $data = File::get(__DIR__ . '/../../private/sber_token.json');
         $data = json_decode($data, true);
         
-        if(!isset($data['access_token']) || !isset($data['expires_in'])) {
+        if(!isset($data['access_token']) || !isset($data['expires_at'])) {
             (new SberController())->getToken();
             $data = File::get(__DIR__ . '/../../private/sber_token.json');
             $data = json_decode($data, true);
         }
 
         $this->access_token = $data['access_token'];
-        $this->expires_at = $data['expires_in'];
+        $this->expires_at = $data['expires_at'];
     }
 
     private function isExpired(): bool
@@ -47,7 +47,7 @@ class AccessToken
             $data = File::get(__DIR__ . '/../../private/sber_token.json');
             $data = json_decode($data, true);
             $this->access_token = $data['access_token'];
-            $this->expires_at = $data['expires_in'];
+            $this->expires_at = $data['expires_at'];
         }
         return $this->access_token;
     }
