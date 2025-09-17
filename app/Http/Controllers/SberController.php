@@ -11,7 +11,7 @@ class SberController extends Controller
 
     static public function getToken()
     {
-        $clientSecret = env('SBER_TOKEN');
+        $clientSecret = env('CLIENT_SECRET');
         $clientId = env('CLIENT_ID');
         $rqUid = \Ramsey\Uuid\Uuid::uuid4()->toString();
 
