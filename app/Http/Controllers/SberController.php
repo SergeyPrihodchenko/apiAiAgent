@@ -103,7 +103,7 @@ class SberController extends Controller
             return ['error' => 'File not found'];
         }
 
-        $accessToken = (new \App\Http\Data\AccessToken())->getToken();
+        $accessToken = (new AccessToken())->getToken();
 
         $fileContent = File::get($filePath);
 
