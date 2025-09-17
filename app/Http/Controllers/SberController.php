@@ -45,6 +45,8 @@ class SberController extends Controller
             $prompt = $request;
         }
 
+        dd($prompt);
+
         $accessToken = (new \App\Http\Data\AccessToken())->getToken();
         $rqUid = Uuid::uuid4()->toString();
 
