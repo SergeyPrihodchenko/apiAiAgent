@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Data;
+namespace App\Data;
 
 use App\Http\Controllers\SberController;
 use Illuminate\Support\Facades\File;

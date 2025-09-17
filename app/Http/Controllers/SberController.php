@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Data\AccessToken;
+use App\Data\AccessToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
