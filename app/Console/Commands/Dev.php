@@ -27,7 +27,7 @@ class Dev extends Command
      */
     public function handle()
     {
-        $rqUid = uniqid('', true);
+        $rqUid = \Ramsey\Uuid\Uuid::uuid4()->toString();
         dd($rqUid);
     }
 }
