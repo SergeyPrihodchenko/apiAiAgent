@@ -53,14 +53,18 @@ class SberController extends Controller
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $accessToken,
             'RqUID' => $rqUid,
-        ])->post('https://ngw.devices.sberbank.ru:9443/api/v2/gigachat', [
-            'prompt' => $prompt,
-            'max_tokens' => 1000,
-            'temperature' => 0.7,
-            'top_p' => 0.9,
-            'n' => 1,
-            'stream' => false,
-            'stop' => null,
+        ])->post('https://api.gigachat.sber.ru/v1/chat/completions', [
+            'messages' => [
+            [
+                'role' => 'system',
+                'content' => 'Ты эксперт по кулинарии, можешь подсказывать рецепты блюд.'
+            ],
+            [
+                'role' => 'user',
+                'content' => $prompt
+            ]
+            ],
+            'model' => 'GigaChat-2-Max'
         ]);
 
         return response()->json($response->json(), $response->status());
