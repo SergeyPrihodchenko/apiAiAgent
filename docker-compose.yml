@@ -13,8 +13,8 @@ services:
         ports:
             - "30004:5432"
 
-    elasticsearch:
-        image: "elasticsearch:6.5.4"
+    # elasticsearch:
+    #     image: "elasticsearch:6.5.4"
 
     webserver:
         image: "nginx:alpine"

@@ -5,6 +5,7 @@ RUN apt-get update \
     && apt-get -y --no-install-recommends install \
         php8.4-gd \
         php8.4-mysql \
+        php8.4-sqlite \
         php8.4-pgsql \
         php8.4-redis \
     && apt-get clean \
