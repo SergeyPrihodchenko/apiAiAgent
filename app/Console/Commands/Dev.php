@@ -27,8 +27,6 @@ class Dev extends Command
      */
     public function handle()
     {        
-            $data = File::get(__DIR__ . '/../../../private/sber_token.json');
-            $data = json_decode($data, true);
-            dd($data['expires_at']);
+            dd(1);
     }
 }
